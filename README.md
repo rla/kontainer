@@ -19,10 +19,13 @@ then it is executed.
 
 ## Example
 
-    var show = kontainer.create('#content');
-    document.getElementById('link-page-1').addEventListener('click', function() {
-        show('<span data-bind="text: message"></span>', { message: ko.observable('Hello World!') });
-    }, false);
+```javascript
+var show = kontainer.create('#content');
+document.getElementById('link-page-1').addEventListener('click', function() {
+    show('<span data-bind="text: message"></span>',
+        { message: ko.observable('Hello World!') });
+}, false);
+```
 
 Creates target on element with id `content` and sets up a link handler to replace its
 contents with the given template and view model.
