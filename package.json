@@ -12,10 +12,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/rla/ko-page-selector"
+    "url": "git://github.com/rla/kontainer"
   },
   "license": "MIT",
-  "main": "ko-page-selector.js",
+  "main": "kontainer.js",
   "devDependencies": {
     "browserify": "^9.0.6",
     "casperjs": "^1.1.0-beta3",
