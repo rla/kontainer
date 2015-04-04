@@ -1,0 +1,27 @@
+{
+  "name": "kontainer",
+  "version": "0.0.1",
+  "author": {
+    "name": "Raivo Laanemets",
+    "email": "info@rlaanemets.com"
+  },
+  "keywords": [
+    "knockout",
+    "knockoutjs",
+    "spa"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rla/ko-page-selector"
+  },
+  "license": "MIT",
+  "main": "ko-page-selector.js",
+  "devDependencies": {
+    "browserify": "^9.0.6",
+    "casperjs": "^1.1.0-beta3",
+    "http-server": "^0.8.0",
+    "jshint": "^2.6.3",
+    "phantomjs": "^1.9.16",
+    "uglifyify": "^3.0.1"
+  }
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>kontainer tests</title>
+    </head>
+    <body>
+        <ul>
+            <li><a href="#" id="link-page-1">Page 1</a></li>
+            <li><a href="#" id="link-page-2">Page 2</a></li>
+        </ul>
+        <div id="page"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+        <script src="/dist/kontainer-standalone.js"></script>
+        <script>
+
+            var show = kontainer.create('#page');
+
+            document.getElementById('link-page-1').addEventListener('click', function() {
+
+                show('<span data-bind="text: message"></span>', { message: ko.observable('Hello World!') });
+
+            }, false);
+
+            document.getElementById('link-page-2').addEventListener('click', function() {
+
+                show('<span data-bind="text: message"></span>', { message: ko.observable('Hello from Page 2') });
+
+            }, false);
+
+        </script>
+    </body>
+</html>
