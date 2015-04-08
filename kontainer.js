@@ -49,15 +49,13 @@ exports.create = function(target) {
             container = dom;
         }
 
-        if (container.children.length > 0) {
+        // Remove possible bindings.
 
-            // Something was previously shown,
-            // remove possible bindings.
+        ko.cleanNode(container);
 
-            ko.cleanNode(container);
+        // Empty the container.
 
-            container.innerHTML = '';
-        }
+        container.innerHTML = '';
 
         // Dispose old model.
 
