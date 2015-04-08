@@ -1,7 +1,7 @@
 # kontainer
 
 ViewModel lifecycle manager for (parts of) KnockoutJS applications. Offers more flexibility
-than built-in KO components and prevent unnecessary reflows.
+than built-in KO components and prevents unnecessary reflows.
 
 ## API
 
