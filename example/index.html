@@ -37,17 +37,23 @@
 
                 message: ko.observable('Hello from Page 3'),
 
-                dispose: function() {
+                dispose: function(arg) {
+
+                    if (!arg) throw Error('Target not given.');
 
                     disposeCalled += 1;
                 },
 
-                inserted: function() {
+                inserted: function(arg) {
+
+                    if (!arg) throw Error('Target not given.');
 
                     insertedCalled += 1;
                 },
 
-                bound: function() {
+                bound: function(arg) {
+
+                    if (!arg) throw Error('Target not given.');
 
                     boundCalled += 1;
                 }

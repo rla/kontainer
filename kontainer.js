@@ -61,7 +61,7 @@ exports.create = function(target) {
 
         if (last) {
 
-            call(last, 'dispose');
+            call(last, 'dispose', container);
         }
 
         // Set new content.
@@ -83,7 +83,7 @@ exports.create = function(target) {
 
         // Call 'inserted' callback.
 
-        call(model, 'inserted');
+        call(model, 'inserted', container);
 
         // Apply bindings.
 
@@ -95,20 +95,20 @@ exports.create = function(target) {
 
         // Calls 'bound' callback.
 
-        call(model, 'bound');
+        call(model, 'bound', container);
     };
 };
 
 // Calls given method if exists.
 // Catches possible exceptions.
 
-function call(base, name) {
+function call(base, name, argument) {
 
     if (typeof base[name] === 'function') {
 
         try {
 
-            base[name]();
+            base[name](argument);
 
         } catch (e) {
 
