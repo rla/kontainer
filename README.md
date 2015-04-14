@@ -20,9 +20,9 @@ previously set viewModel.
 
 The viewModel can have the following methods defined:
 
- * `inserted(DOM target)` - called when the template is inserted in the DOM tree.
- * `bound(DOM target)` - called when the viewModel is bound the DOM tree.
- * `dispose(DOM target)` - called when the template and viewModel are replaced.
+ * `inserted(DOM target)` - called when the template is inserted into the DOM tree.
+ * `bound(DOM target)` - called when the viewModel is bound to the DOM tree.
+ * `dispose(DOM target)` - called when the template and the viewModel are replaced.
 
 The `inserted` callback is called before `bound` as the template is
 inserted into the DOM tree before the bindings are applied.
