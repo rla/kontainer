@@ -14,8 +14,18 @@ The target element can be given as a DOM element or a selector expression.
 
 Binds and renders the template to the previously set target. Template
 can be either a DOM element/document fragment or a string. Unbinds
-previously set viewModel. If the old viewModel had `dispose()` method
-then it is executed.
+previously set viewModel.
+
+### Lifecycle callbacks
+
+The viewModel can have the following methods defined:
+
+ * `inserted(DOM target)` - called when the template is inserted in the DOM tree.
+ * `bound(DOM target)` - called when the viewModel is bound the DOM tree.
+ * `dispose(DOM target)` - called when the template and viewModel are replaced.
+
+The `inserted` callback is called before `bound` as the template is
+inserted into the DOM tree before the bindings are applied.
 
 ## Example
 
