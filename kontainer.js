@@ -59,17 +59,9 @@ exports.create = function(target) {
 
         // Dispose old model.
 
-        if (last && typeof last.dispose === 'function') {
+        if (last) {
 
-            try {
-
-                last.dispose();
-
-            } catch (e) {
-
-                console.log(e);
-                console.error(e.stack);
-            }
+            call(last, 'dispose');
         }
 
         // Set new content.
@@ -89,6 +81,10 @@ exports.create = function(target) {
             throw new Error('Template is not set');
         }
 
+        // Call 'inserted' callback.
+
+        call(model, 'inserted');
+
         // Apply bindings.
 
         ko.applyBindings(model, container);
@@ -96,5 +92,32 @@ exports.create = function(target) {
         // Save the last model.
 
         last = model;
+
+        // Calls 'bound' callback.
+
+        call(model, 'bound');
     };
 };
+
+// Calls given method if exists.
+// Catches possible exceptions.
+
+function call(base, name) {
+
+    if (typeof base[name] === 'function') {
+
+        try {
+
+            base[name]();
+
+        } catch (e) {
+
+            console.log(e);
+
+            if (e.stack) {
+
+                console.error(e.stack);
+            }
+        }
+    }
+}

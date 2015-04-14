@@ -8,6 +8,7 @@
         <ul>
             <li><a href="#" id="link-page-1">Page 1</a></li>
             <li><a href="#" id="link-page-2">Page 2</a></li>
+            <li><a href="#" id="link-page-3">Page 3</a></li>
         </ul>
         <div id="page"></div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
@@ -25,6 +26,36 @@
             document.getElementById('link-page-2').addEventListener('click', function() {
 
                 show('<span data-bind="text: message"></span>', { message: ko.observable('Hello from Page 2') });
+
+            }, false);
+
+            // Tests lifecycle handlers.
+
+            var disposeCalled = 0, insertedCalled = 0, boundCalled = 0;
+
+            var model = {
+
+                message: ko.observable('Hello from Page 3'),
+
+                dispose: function() {
+
+                    disposeCalled += 1;
+                },
+
+                inserted: function() {
+
+                    insertedCalled += 1;
+                },
+
+                bound: function() {
+
+                    boundCalled += 1;
+                }
+            };
+
+            document.getElementById('link-page-3').addEventListener('click', function() {
+
+                show('<span data-bind="text: message"></span>', model);
 
             }, false);
 
